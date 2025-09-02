@@ -36,11 +36,45 @@ def value_validation(user_value):
     return user_value
 
 
-# run code
+# quick check for any edge cases
+def fast_check(user_value):
+
+    """
+    A set of checks which will rapidly determine edge cases
+    Will return a true value if all tests are passed, or a false value if any tests are failed
+
+    Parameters: 
+    user_value - a validated integer value to be checked
+
+    returns:
+    true - when all tests are passed
+    false - when any tests are failed
+    """
+    
+    user_value = int(user_value)
+    test_value = int(user_value)
+
+    if user_value <= 2:
+        return False
+    elif user_value != test_value:
+        return False
+    else:
+        return True
+
+
 def main():
 
     value = input("please enter a value (type quit to exit program): ")
-    # checks if user's value is a numerical value
+    # value validation:
     affirmed_value = value_validation(value)
+    # rapid check:
+    checked = fast_check(affirmed_value)
+    # full check: 
+    # checker(affirmed_value)
+
+    if checked == True:
+        print("This value is a prime number! \n")
+    else:
+        print("This value is NOT a prime number \n")
 
 main()
