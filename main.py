@@ -50,13 +50,12 @@ def fast_check(user_value):
     true - when all tests are passed
     false - when any tests are failed
     """
-    
-    user_value = int(user_value)
+    user_value = float(user_value)
     test_value = int(user_value)
 
-    if user_value <= 2:
+    if user_value != test_value:
         return False
-    elif user_value != test_value:
+    elif user_value <= 2:
         return False
     else:
         return True
@@ -64,17 +63,25 @@ def fast_check(user_value):
 
 def main():
 
-    value = input("please enter a value (type quit to exit program): ")
-    # value validation:
-    affirmed_value = value_validation(value)
-    # rapid check:
-    checked = fast_check(affirmed_value)
-    # full check: 
-    # checker(affirmed_value)
+    func_run = True
+    while func_run:
+        value = input("please enter a value (type quit to exit program): ")
+        if value.lower() == "quit":
+            func_run = False
+            break
+        else:
+            # value validation:
+            affirmed_value = value_validation(value)
+            # rapid check:
+            checked = fast_check(affirmed_value)
+            # full check: 
+            # checker(affirmed_value)
 
-    if checked == True:
-        print("This value is a prime number! \n")
-    else:
-        print("This value is NOT a prime number \n")
+            if checked == True:
+                print("This value is a prime number! \n")
+            else:
+                print("This value is NOT a prime number \n")
+
+    print("\n Thank you for trying my program! \n")
 
 main()
