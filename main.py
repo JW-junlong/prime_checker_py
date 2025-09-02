@@ -1,6 +1,6 @@
 # imports from global libraries
 import math
-
+import time
 # main variables
 
 
@@ -92,6 +92,9 @@ def main():
             func_run = False
             break
         else:
+            # start a timer
+            start = time.perf_counter()
+
             # value validation:
             affirmed_value = value_validation(value)
             # rapid check:
@@ -107,6 +110,10 @@ def main():
                 print("This value is a prime number! \n")
             else:
                 print("This value is NOT a prime number \n")
+
+            # ends timer and prints time
+            end = time.perf_counter()
+            print(f"Time to run: {end - start} seconds \n")
 
     print("\n Thank you for trying my program! \n")
 
