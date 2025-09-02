@@ -1,4 +1,5 @@
 # imports from global libraries
+import math
 
 # main variables
 
@@ -60,6 +61,27 @@ def fast_check(user_value):
     else:
         return True
 
+def checker(user_value, square_root):
+    """
+    Using rudimentary math, specifically trial division, determine if a number is prime by trying all integers 
+    up to the square root value of the given user_value.
+
+    Parameters:
+    user_value - validated value
+    square_root - the sqrt of user_value
+
+    Returns:
+    true - when all values except for the sqrt returns a mod operator value of > 0
+    false - when any of the NON sqrt values return a mod operator value of 0
+    """
+
+    values_to_divide = int(square_root)
+    largest_value = int(square_root)
+    while values_to_divide > 1:
+        if user_value % values_to_divide == 0:
+            return False
+        values_to_divide -= 1
+    return True
 
 def main():
 
@@ -74,8 +96,12 @@ def main():
             affirmed_value = value_validation(value)
             # rapid check:
             checked = fast_check(affirmed_value)
-            # full check: 
-            # checker(affirmed_value)
+            # full check: (most basic method, will develop more as I learn the math behind them)
+            if checked == True:
+                affirmed_value = int(affirmed_value)
+                square_root = math.sqrt(affirmed_value)
+                checked = checker(affirmed_value, square_root)
+
 
             if checked == True:
                 print("This value is a prime number! \n")
