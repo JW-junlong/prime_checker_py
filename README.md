@@ -34,5 +34,5 @@
 <h1> DATES OF PRODUCTION: </h1>
 <p>
     initial commit: 09/02/25
-    first version: TBD
+    first version: 09/02/25
 </p>
